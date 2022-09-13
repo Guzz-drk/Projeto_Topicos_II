@@ -1,3 +1,8 @@
+-- Integrantes: 
+    - Bernardo - (182715)
+    - Gustavo - (182740)
+    - João Vitor - (182741)
+
 -- Tema: Gerenciamento de Insumos cervejeiros.
 
 Afim de melhorar a gestão do próprio insumo cervejeiro, cria-se uma aplicação 
