@@ -23,5 +23,7 @@ todos os dados necessários para a criação de outras.
        
     6-Malte_Leva (id, quantidade, id_leva, id_malte)
 
-    7-Estilo_Leva (id, tipoLeva, descricao, id_Leva)
+    7-Receita(id, id_lupulo, id_malte, id_estiloLeva)
+
+    8-Estilo_Leva (id, tipoLeva, descricao, id_Leva)
        
