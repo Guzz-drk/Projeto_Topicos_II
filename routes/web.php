@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/usuarios', [App\Http\Controllers\UsuariosController::class, 'index']);
+
+Route::get('/maltes', [App\Http\Controllers\MaltesController::class, 'index']);
