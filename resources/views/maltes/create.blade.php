@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 @section('content')
     <h3>Novo Malte</h3>
-    @if ($erros->any())
+    @if ($errors->any())
         <ul class="alert alert-danger">
-            @foreach ($erros->all() as $error)
+            @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
     @endif
-    {!! Form::open(['url' => 'maltes/store']) !!}
+    {!! Form::open(['route' => 'maltes.store']) !!}
     <div class="form-group">
         {!! Form::label('nome', 'Nome:') !!}
         {!! Form::text('nome', null, ['class' => 'form-control', 'required']) !!}

@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.default')
 @section('content')
     <h1>Fermentos</h1>
 
@@ -13,6 +13,9 @@
             <th>
                 Descrição
             </th>
+            <th>
+                Ações
+            </th>
         </thead>
         <tbody>
             @foreach ($fermentos as $fermento)
@@ -26,9 +29,17 @@
                     <td>
                         {{ $fermento->descricao }}
                     </td>
+                    <td>
+                        <a href="{{ route('fermentos.edit', ['id' => $fermento->id]) }}" class="btn-sm btn-success">Editar</a>
+                        <a href="#" onclick="return ConfirmaExclusao({{ $fermento->id }})"
+                            class="btn-sm btn-danger">Remover</a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-
+    <a href="{{ route('fermentos.create', []) }}" class="btn btn-info">Adicionar</a>
 @stop
+@section('table-delete')
+    "fermentos"
+@endsection

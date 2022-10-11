@@ -1,6 +1,7 @@
 @extends('adminlte::page')
+
 @section('content')
-    <h3>Novo Fermento</h3>
+    <h3>Editando Malte: {{ $maltes->nome }}</h3>
     @if ($errors->any())
         <ul class="alert alert-danger">
             @foreach ($errors->all() as $error)
@@ -8,21 +9,17 @@
             @endforeach
         </ul>
     @endif
-    {!! Form::open(['route' => 'fermentos.store']) !!}
+    {!! Form::open(['route' => ['maltes.update', 'id' => $maltes->id], 'method' => 'put']) !!}
     <div class="form-group">
         {!! Form::label('nome', 'Nome:') !!}
-        {!! Form::text('nome', null, ['class' => 'form-control', 'required']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('marca', 'Marca:') !!}
-        {!! Form::text('marca', null, ['class' => 'form-control', 'required']) !!}
+        {!! Form::text('nome', $maltes->nome, ['class' => 'form-control', 'required']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('descricao', 'Descrição:') !!}
-        {!! Form::text('descricao', null, ['class' => 'form-control', 'required']) !!}
+        {!! Form::text('descricao', $maltes->descricao, ['class' => 'form-control', 'required']) !!}
     </div>
     <div class="form-group">
-        {!! Form::submit('Criar Fermento', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('Editar', ['class' => 'btn btn-primary']) !!}
         {!! Form::reset('Limpar', ['class' => 'btn btn-default']) !!}
     </div>
     {!! Form::close() !!}

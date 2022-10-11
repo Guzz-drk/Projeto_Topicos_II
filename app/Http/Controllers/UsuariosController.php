@@ -14,12 +14,33 @@ class UsuariosController extends Controller
         $users = User::all();
         return view('users.index', ['users' => $users]);
     }
-    public function create(){
+    public function create()
+    {
         return view('users.create');
     }
-    public function store(UserRequest $request){
+    public function store(UserRequest $request)
+    {
         $user = $request->all();
         User::create($user);
-        return redirect('users');
+        return redirect()->route('users');
+    }
+
+    public function destroy($id)
+    {
+        User::find($id)->delete();
+        return redirect()->route('users');
+    }
+
+    public function edit($id)
+    {
+        $user = User::find($id);
+        // dd($user->name);
+        return view('users.edit', compact('user'));
+    }
+
+    public function update(UserRequest $request, $id)
+    {
+        User::find($id)->update($request->all());
+        return redirect()->route('users');
     }
 }

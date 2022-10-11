@@ -293,47 +293,47 @@ return [
         // Navbar items:
         ['header' => 'Usuario'],
         [
-            'text' => 'Listagem dos Usuarios',
-            'url'  => 'usuarios',
+            'text' => 'Usuarios',
+            'url'  => 'users',
             'icon' => 'fas fa-fw fa-users',
         ],
         ['header' => 'Maltes'],
         [
-            'text' => 'Listagem dos Maltes',
+            'text' => 'Maltes',
             'url'  => 'maltes',
-            'icon' => 'fas fa-fw fa-users',
+            'icon' => 'fa-regular fa-wheat',
         ],
         ['header' => 'Fermentos'],
         [
-            'text' => 'Listagem dos Fermentos',
+            'text' => 'Fermentos',
             'url'  => 'fermentos',
             'icon' => 'fas fa-fw fa-users',
         ],
         ['header' => 'Lupulos'],
         [
-            'text' => 'Listagem dos Lupulos',
+            'text' => 'Lupulos',
             'url'  => 'lupulos',
             'icon' => 'fas fa-fw fa-users',
         ],
         ['header' => 'Levas'],
         [
-            'text' => 'Listagem das Levas',
+            'text' => 'Levas',
             'url'  => 'levas',
             'icon' => 'fas fa-fw fa-users',
         ],
         ['header' => 'Estilos de Levas'],
         [
-            'text' => 'Listagem dos Estilos de Levas',
+            'text' => 'Estilos de Levas',
             'url'  => 'estiloLevas',
             'icon' => 'fas fa-fw fa-users',
         ],
         ['header' => 'Receitas'],
         [
-            'text' => 'Listagem das Receitas',
+            'text' => 'Receitas',
             'url'  => 'receitas',
             'icon' => 'fas fa-fw fa-users',
         ],
-        
+
     ],
 
     /*

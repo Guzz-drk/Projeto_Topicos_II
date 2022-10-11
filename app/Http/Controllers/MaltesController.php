@@ -17,9 +17,28 @@ class MaltesController extends Controller
     {
         return view('maltes.create');
     }
-    public function store(MaltesRequest $request){
+    public function store(MaltesRequest $request)
+    {
         $maltes = $request->all();
         Malte::create($maltes);
-        return redirect('maltes');
+        return redirect()->route('maltes');
+    }
+
+    public function destroy($id)
+    {
+        Malte::find($id)->delete();
+        return redirect()->route('maltes');
+    }
+
+    public function edit($id)
+    {
+        $maltes = Malte::find($id);
+        return view('maltes.edit', compact('maltes'));
+    }
+
+    public function update(MaltesRequest $request, $id)
+    {
+        Malte::find($id)->update($request->all());
+        return redirect()->route('maltes');
     }
 }
