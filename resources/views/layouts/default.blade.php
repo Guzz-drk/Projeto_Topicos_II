@@ -15,18 +15,26 @@
                 confirmButtonText: 'Sim, excluir!',
                 cancelButtonText: 'Cancelar!'
             }).then(function(isConfirm) {
-                if (isConfirm.value) {
-                    $.get('/' + @yield('table-delete') + '/' + id + '/destroy', function(data) {
-                        Swal.fire(
-                            'Deletado!',
-                            'Exclusão confirmada.',
-                            'success'
-                        ).then(function() {
-                            window.location.reload();
-                        })
+                    if (isConfirm.value) {
+                        $.get('/' + @yield('table-delete') + '/' + id + '/destroy', function(data) {
+                                console.log(data);
+                                if (data.status == 200) {
+                                    Swal.fire(
+                                        'Deletado!',
+                                        'Exclusão confirmada.',
+                                        'success'
+                                    ).then(function() {
+                                        window.location.reload();
+                                    });
+                                } else
+                                    Swal.fire(
+                                        'Erro!',
+                                        'Não foi possível excluir o registro.',
+                                        'error'
+                                    );
+                            }
+                        }
                     })
-                }
-            })
-        }
+            }
     </script>
 @stop

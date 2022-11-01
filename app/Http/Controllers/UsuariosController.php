@@ -9,10 +9,14 @@ use App\Models\Usuario;
 
 class UsuariosController extends Controller
 {
-    public function index()
+    public function index(Request $filtro)
     {
-        $users = User::all();
-        return view('users.index', ['users' => $users]);
+        $filtragem = $filtro->get('desc_filtro');
+        if($filtragem == null)
+            $user = User::orderBy('name')->paginate(10);
+        else
+            $user = User::where('name', 'like', '%'.$filtragem.'%')->orderBy('name')->paginate(10)->setpath('users?desc_filtro='.$filtragem);
+            return view('users.index', ['users' => $user]);
     }
     public function create()
     {
@@ -27,8 +31,16 @@ class UsuariosController extends Controller
 
     public function destroy($id)
     {
-        User::find($id)->delete();
-        return redirect()->route('users');
+        try {
+            User::find($id)->delete();
+            $ret = array('status' => 200, 'msg' => null);
+        } catch (\Illuminate\Database\QueryException $e) {
+            $ret = array('status' => 500, 'msg' => $e->getMessage());
+        }
+        catch (\PDOException $e) {
+            $ret = array('status' => 500, 'msg' => $e->getMessage());
+        }
+        return $ret;
     }
 
     public function edit($id)

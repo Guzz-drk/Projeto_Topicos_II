@@ -27,8 +27,16 @@ class FermentosController extends Controller
 
     public function destroy($id)
     {
-        Fermento::find($id)->delete();
-        return redirect()->route('fermentos');
+        try {
+            Fermento::find($id)->delete();
+            $ret = array('status' => 200, 'msg' => null);
+        } catch (\Illuminate\Database\QueryException $e) {
+            $ret = array('status' => 500, 'msg' => $e->getMessage());
+        }
+        catch (\PDOException $e) {
+            $ret = array('status' => 500, 'msg' => $e->getMessage());
+        }
+        return $ret;
     }
 
     public function edit($id)

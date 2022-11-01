@@ -10,4 +10,9 @@ class Fermento extends Model
     use HasFactory;
     protected $table = "fermentos";
     protected $fillable = ['nome', 'marca', 'descricao'];
+
+    public function levas()
+    {
+        return $this->hasMany("App\Models\Leva");
+    }
 }

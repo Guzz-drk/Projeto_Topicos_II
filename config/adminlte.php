@@ -301,7 +301,7 @@ return [
         [
             'text' => 'Maltes',
             'url'  => 'maltes',
-            'icon' => 'fa-regular fa-wheat',
+            'icon' => 'fa fa-wheat',
         ],
         ['header' => 'Fermentos'],
         [
