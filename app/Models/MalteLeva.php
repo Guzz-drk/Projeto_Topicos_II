@@ -8,14 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class MalteLeva extends Model
 {
     use HasFactory;
-    protected $fillable = ['id_malte', 'id_leva', 'qtd_malte'];
+    protected $fillable = ['id_malte', 'id_leva', 'qtd'];
+    protected $table = "malte_levas";
 
-    // public function malte()
-    // {
-    //     return $this->belongsTo("App\Models\Malte");
-    // }
-    // public function leva()
-    // {
-    //     return $this->belongsTo("App\Models\Leva");
-    // }
+
+    public function malte()
+    {
+        return $this->belongsTo("\App\Models\Malte");
+    }
+
+    public function leva()
+    {
+        return $this->belongsTo("\App\Models\Leva");
+    }
 }

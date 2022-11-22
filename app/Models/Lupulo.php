@@ -15,4 +15,9 @@ class Lupulo extends Model
     {
         return $this->hasMany("App\Models\Leva");
     }
+
+    public function receitas()
+    {
+        return $this->hasMany("App\Models\Receita");
+    }
 }

@@ -21,4 +21,13 @@ class Leva extends Model
         return $this->belongsTo("\App\Models\Lupulo");
     }
 
+    public function estiloLevas()
+    {
+        return $this->hasmany("\App\Models\EstiloLeva");
+    }
+
+    public function malteLevas()
+    {
+        return $this->hasmany("\App\Models\MalteLeva");
+    }
 }

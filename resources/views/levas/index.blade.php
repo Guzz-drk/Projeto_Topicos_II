@@ -17,10 +17,10 @@
                 Tempo de Fervura Final
             </th>
             <th>
-                Quantidade de Água / L
+                Água/l
             </th>
             <th>
-                Quantidade de Fermento / G
+                Fermento/g
             </th>
             <th>
                 Fermento
@@ -40,7 +40,7 @@
 
                     </td>
                     <td>
-                        {{ $leva->fervura_inicial }}
+                        {{ $leva->fervura_inicial }} Celsius
                     </td>
                     <td>
                         {{ $leva->tempo_fervura }}
@@ -49,10 +49,10 @@
                         {{ $leva->tempo_fervura_final }}
                     </td>
                     <td>
-                        {{ $leva->qtd_agua }}
+                        {{ $leva->qtd_agua }} litro
                     </td>
                     <td>
-                        {{ $leva->qtd_fermento }}
+                        {{ $leva->qtd_fermento }} grama
                     </td>
                     <td>
                         {{ isset($leva->fermentos->nome) ? $leva->fermentos->nome : 'Fermento não encontrado' }}

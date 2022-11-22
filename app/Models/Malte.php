@@ -10,4 +10,14 @@ class Malte extends Model
     use HasFactory;
     protected $table = "maltes";
     protected $fillable = ['nome', 'descricao'];
+
+    public function malteLevas()
+    {
+        return $this->hasmany("\App\Models\MalteLeva");
+    }
+
+    public function receitas()
+    {
+        return $this->hasmany("\App\Models\Receita");
+    }
 }
