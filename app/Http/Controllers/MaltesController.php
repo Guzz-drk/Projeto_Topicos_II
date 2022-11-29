@@ -8,9 +8,16 @@ use App\Models\Malte;
 
 class MaltesController extends Controller
 {
-    public function index()
+    public function index(Request $filtro)
     {
-        $maltes = Malte::all();
+        $filtragem = $filtro->get('desc_filtro');
+        if ($filtragem == null)
+            $maltes = Malte::orderBy('nome')->paginate(5);
+        else
+            $maltes = Malte::where('nome', 'like', '%'.$filtragem.'%')
+                ->orderBy("nome")
+                ->paginate(5)
+                ->setPath('?desc_filtro='.$filtragem);
         return view('maltes.index', ['maltes' => $maltes]);
     }
     public function create()

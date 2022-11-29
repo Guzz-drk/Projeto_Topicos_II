@@ -11,7 +11,7 @@ class EstiloLeva extends Model
     protected $table = "estilo_levas";
     protected $fillable = ['tipo_leva', 'descricao', 'leva_id'];
 
-    public function levas()
+    public function leva()
     {
         return $this->belongsTo("\App\Models\Leva");
     }

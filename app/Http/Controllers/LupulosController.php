@@ -8,9 +8,16 @@ use Illuminate\Http\Request;
 
 class LupulosController extends Controller
 {
-    public function index()
+    public function index(Request $filtro)
     {
-        $lupulos = Lupulo::all();
+        $filtragem = $filtro->get('desc_filtro');
+        if ($filtragem == null)
+            $lupulos = Lupulo::orderBy('nome')->paginate(5);
+        else
+            $lupulos = Lupulo::where('nome', 'like', '%'.$filtragem.'%')
+                ->orderBy("nome")
+                ->paginate(5)
+                ->setPath('?desc_filtro='.$filtragem);
         return view('lupulos.index', ['lupulos' => $lupulos]);
     }
     public function create()

@@ -8,9 +8,16 @@ use Illuminate\Http\Request;
 
 class EstiloLevasController extends Controller
 {
-    public function index()
+    public function index(Request $filtro)
     {
-        $estiloLevas = EstiloLeva::all();
+        $filtragem = $filtro->get('desc_filtro');
+        if ($filtragem == null)
+            $estiloLevas = EstiloLeva::orderBy('tipo_leva')->paginate(5);
+        else
+            $estiloLevas = EstiloLeva::where('tipo_leva', 'like', '%'.$filtragem.'%')
+                ->orderBy("tipo_leva")
+                ->paginate(5)
+                ->setPath('?desc_filtro='.$filtragem);
         return view('estiloLevas.index', ['estiloLevas' => $estiloLevas]);
     }
     public function create()

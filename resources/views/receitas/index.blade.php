@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-    <h1>Receita</h1>
+    <h1>Receitas</h1>
 
     <table class="table table-striped table-bordered table-hover">
         <thead>
@@ -21,13 +21,13 @@
             @foreach ($receitas as $receita)
                 <tr>
                     <td>
-                        {{ isset($receita->lupulo_id->id) ? $receita->lupulo_id->id : 'Lupulo não encontrado' }}
+                        {{ isset($receita->lupulo->nome) ? $receita->lupulo->nome : 'Lupulo não encontrado' }}
                     </td>
                     <td>
-                        {{ isset($receita->malte_id->id) ? $receita->malte_id->id : 'Malte não encontrado' }}
+                        {{ isset($receita->malte->nome) ? $receita->malte->nome : 'Malte não encontrado' }}
                     </td>
                     <td>
-                        {{ isset($receita->estiloLeva_id->id) ? $receita->estiloLeva_id->id : 'Estilo de Leva não encontrado' }}
+                        {{ isset($receita->estiloLeva->descricao) ? $receita->estiloLeva->descricao : 'Estilo de Leva não encontrado' }}
                     </td>
                     <td>
                         <a href="{{ route('receitas.edit', ['id' => $receita->id]) }}" class="btn-sm btn-success">Editar</a>

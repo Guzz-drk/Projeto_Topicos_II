@@ -14,11 +14,11 @@ class MalteLeva extends Model
 
     public function malte()
     {
-        return $this->belongsTo("\App\Models\Malte");
+        return $this->belongsTo("\App\Models\Malte", 'id_malte');
     }
 
     public function leva()
     {
-        return $this->belongsTo("\App\Models\Leva");
+        return $this->belongsTo("\App\Models\Leva", 'id_leva');
     }
 }

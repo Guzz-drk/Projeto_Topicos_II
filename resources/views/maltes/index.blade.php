@@ -1,7 +1,18 @@
 @extends('layouts.default')
 @section('content')
     <h1>Maltes</h1>
-
+    {!! Form::open(['name' => 'form_name', 'route' => 'maltes']) !!}
+    <div class="sidebar-form">
+        <div class="input-group">
+            <input type="text" name="desc_filtro" class="form-control" style="width: 90% !important;"
+                placeholder="Pesquisar...">
+            <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
+                        class="fa fa-search"></i></button>
+            </span>
+        </div>
+    </div>
+    <br>
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <th>

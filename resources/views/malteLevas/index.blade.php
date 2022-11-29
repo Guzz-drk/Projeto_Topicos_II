@@ -8,10 +8,10 @@
                 Quantidade de Malte
             </th>
             <th>
-                Malte
+                Leva
             </th>
             <th>
-                Leva
+                Malte
             </th>
         </thead>
         <tbody>
@@ -21,10 +21,11 @@
                         {{ $malteLeva->qtd }} Quilos
                     </td>
                     <td>
-                        {{ isset($malteLeva->id_leva->id) ? $malteLeva->id_leva->id : 'Leva não encontrado' }}
+                        {{ isset($malteLeva->leva->fermentos) ? $malteLeva->leva->fermentos->descricao : 'Leva não encontrado' }}
                     </td>
                     <td>
-                        {{ isset($malteLeva->id_malte->id) ? $malteLeva->id_malte->id : 'Malte não encontrado' }}
+                        {{ isset($malteLeva->malte->nome) ? $malteLeva->malte->nome : 'Malte não encontrado' }}
+                    </td>
                     <td>
                         <a href="{{ route('malteLevas.edit', ['id' => $malteLeva->id]) }}"
                             class="btn-sm btn-success">Editar</a>

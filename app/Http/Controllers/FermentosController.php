@@ -8,9 +8,16 @@ use Illuminate\Http\Request;
 
 class FermentosController extends Controller
 {
-    public function index()
+    public function index(Request $filtro)
     {
-        $fermentos = Fermento::all();
+        $filtragem = $filtro->get('desc_filtro');
+        if ($filtragem == null)
+            $fermentos = Fermento::orderBy('nome')->paginate(5);
+        else
+            $fermentos = Fermento::where('nome', 'like', '%'.$filtragem.'%')
+                ->orderBy("nome")
+                ->paginate(5)
+                ->setPath('?desc_filtro='.$filtragem);
         return view('fermentos.index', ['fermentos' => $fermentos]);
     }
     public function create()

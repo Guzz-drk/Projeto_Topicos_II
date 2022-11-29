@@ -1,7 +1,18 @@
 @extends('layouts.default')
 @section('content')
-    <h1>Levas</h1>
-
+    <h1>Estilo de Levas</h1>
+    {!! Form::open(['name' => 'form_name', 'route' => 'estiloLevas']) !!}
+    <div class="sidebar-form">
+        <div class="input-group">
+            <input type="text" name="desc_filtro" class="form-control" style="width: 90% !important;"
+                placeholder="Pesquisar...">
+            <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
+                        class="fa fa-search"></i></button>
+            </span>
+        </div>
+    </div>
+    <br>
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <th>
@@ -27,7 +38,7 @@
                         {{ $estiloLeva->descricao }}
                     </td>
                     <td>
-                        {{ isset($estiloLeva->leva_id->id) ? $estiloLeva->leva_id->id : 'Leva não encontrado' }}
+                        {{ isset($estiloLeva->leva->id) ? $estiloLeva->leva->id : 'Leva não encontrado' }}
                     </td>
                     <td>
                         <a href="{{ route('estiloLevas.edit', ['id' => $estiloLeva->id]) }}"

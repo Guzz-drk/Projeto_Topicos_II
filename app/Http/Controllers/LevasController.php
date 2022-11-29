@@ -8,11 +8,19 @@ use Illuminate\Http\Request;
 
 class LevasController extends Controller
 {
-    public function index()
+    public function index(Request $filtro)
     {
-        $levas = Leva::all();
+        $filtragem = $filtro->get('desc_filtro');
+        if ($filtragem == null)
+            $levas = Leva::orderBy('dt_fabricacao')->paginate(5);
+        else
+            $levas = Leva::where('dt_fabricacao', 'like', '%'.$filtragem.'%')
+                ->orderBy("dt_fabricacao")
+                ->paginate(5)
+                ->setPath('?desc_filtro='.$filtragem);
         return view('levas.index', ['levas' => $levas]);
     }
+
     public function create()
     {
         return view('levas.create');

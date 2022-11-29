@@ -13,7 +13,7 @@ class Receita extends Model
 
     public function estiloLeva()
     {
-        return $this->belongsTo("\App\Models\EstiloLeva");
+        return $this->belongsTo("\App\Models\EstiloLeva", 'estiloLeva_id');
     }
 
     public function lupulo()
