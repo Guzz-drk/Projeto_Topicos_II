@@ -28,6 +28,6 @@ class Leva extends Model
 
     public function malteLevas()
     {
-        return $this->hasmany("\App\Models\MalteLeva");
+        return $this->hasmany("\App\Models\MalteLeva", 'id_leva');
     }
 }

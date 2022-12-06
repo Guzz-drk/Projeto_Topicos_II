@@ -1,17 +1,6 @@
 @extends('layouts.default')
 @section('content')
     <h1>Levas</h1>
-    {!! Form::open(['name' => 'form_name', 'route' => 'levas']) !!}
-    <div class="sidebar-form">
-        <div class="input-group">
-            <input type="text" name="desc_filtro" class="form-control" style="width: 90% !important;"
-                placeholder="Pesquisar...">
-            <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
-                        class="fa fa-search"></i></button>
-            </span>
-        </div>
-    </div>
     <br>
     <table class="table table-striped table-bordered table-hover">
         <thead>
@@ -38,6 +27,9 @@
             </th>
             <th>
                 Lupulo
+            </th>
+            <th>
+                Malte
             </th>
             <th>
                 Ações
@@ -70,6 +62,11 @@
                     </td>
                     <td>
                         {{ isset($leva->lupulos->nome) ? $leva->lupulos->nome : 'Lupulo não encontrado' }}
+                    </td>
+                    <td>
+                        @foreach ($leva->malteLevas as $m)
+                            <li style="list-style-type: none">{{$m->malte->nome}}</li>
+                        @endforeach
                     </td>
                     <td>
                         <a href="{{ route('levas.edit', ['id' => $leva->id]) }}" class="btn-sm btn-success">Editar</a>

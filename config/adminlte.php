@@ -291,7 +291,7 @@ return [
 
     'menu' => [
         // Navbar items:
-        ['header' => 'Usuario'],
+        ['header' => 'Cadastros'],
         [
             'text' => 'Usuarios',
             'url'  => 'users',

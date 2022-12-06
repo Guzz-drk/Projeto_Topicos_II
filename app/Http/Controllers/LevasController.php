@@ -4,20 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LevaRequest;
 use App\Models\Leva;
+use App\Models\MalteLeva;
 use Illuminate\Http\Request;
 
 class LevasController extends Controller
 {
     public function index(Request $filtro)
     {
-        $filtragem = $filtro->get('desc_filtro');
-        if ($filtragem == null)
-            $levas = Leva::orderBy('dt_fabricacao')->paginate(5);
-        else
-            $levas = Leva::where('dt_fabricacao', 'like', '%'.$filtragem.'%')
-                ->orderBy("dt_fabricacao")
-                ->paginate(5)
-                ->setPath('?desc_filtro='.$filtragem);
+        $levas = Leva::all();
         return view('levas.index', ['levas' => $levas]);
     }
 
@@ -27,8 +21,25 @@ class LevasController extends Controller
     }
     public function store(LevaRequest $request)
     {
-        $levas = $request->all();
-        Leva::create($levas);
+        $levas = Leva::create([
+            'dt_fabricacao' => $request->get('dt_fabricacao'),
+            'fervura_inicial' => $request->get('fervura_inicial'),
+            'tempo_fervura' => $request->get('tempo_fervura'),
+            'qtd_agua' => $request->get('qtd_agua'),
+            'qtd_fermento' => $request->get('qtd_fermento'),
+            'fermentos_id' => $request->get('fermentos_id'),
+            'lupulos_id' => $request->get('lupulos_id'),
+            'tempo_fervura_final' => $request->get('tempo_fervura_final'),
+        ]);
+
+        $maltes = $request->maltes;
+        foreach($maltes as $m => $value){
+            MalteLeva::create([
+                'id_malte' => $maltes[$m],
+                'id_leva' => $levas->id,
+                'qtd' => $value,
+            ]);
+        }
         return redirect()->route('levas');
     }
 

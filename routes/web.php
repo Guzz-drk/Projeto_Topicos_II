@@ -74,7 +74,7 @@ Route::group(['middleware' => 'auth'], function(){
     });
 
     Route::group(['prefix' => 'levas', 'where' => ['id' => '[0-9]+']], function () {
-        Route::any('', ['as' => 'levas', 'uses' => '\App\Http\Controllers\LevasController@index']);
+        Route::get('', ['as' => 'levas', 'uses' => '\App\Http\Controllers\LevasController@index']);
         Route::get('create', ['as' => 'levas.create', 'uses' => '\App\Http\Controllers\LevasController@create']);
         Route::get('{id}/destroy', ['as' => 'levas.destroy', 'uses' => '\App\Http\Controllers\LevasController@destroy']);
         Route::get('{id}/edit', ['as' => 'levas.edit', 'uses' => '\App\Http\Controllers\LevasController@edit']);
