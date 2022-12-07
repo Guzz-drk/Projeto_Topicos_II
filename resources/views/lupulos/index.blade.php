@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('content')
-    <h1>Lupulos</h1>
+<br>
+    <h1 style="text-align: center">Lupulos</h1>
     {!! Form::open(['name' => 'form_name', 'route' => 'lupulos']) !!}
     <div class="sidebar-form">
         <div class="input-group">
@@ -13,7 +14,7 @@
         </div>
     </div>
     <br>
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-striped table-bordered table-hover" style="text-align: center">
         <thead>
             <th>
                 Nome
@@ -42,6 +43,7 @@
                     </td>
                     <td>
                         <a href="{{ route('lupulos.edit', ['id' => $lupulo->id]) }}" class="btn-sm btn-success">Editar</a>
+                        <p></p>
                         <a href="#" onclick="return ConfirmaExclusao({{ $lupulo->id }})"
                             class="btn-sm btn-danger">Remover</a>
                     </td>

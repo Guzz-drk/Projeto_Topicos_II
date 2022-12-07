@@ -1,8 +1,9 @@
 @extends('layouts.default')
 @section('content')
-    <h1>Levas</h1>
+<br>
+    <h1 style="text-align: center">Levas</h1>
     <br>
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-striped table-bordered table-hover" style="text-align: center">
         <thead>
             <th>
                 Data de Fabricação
@@ -52,10 +53,10 @@
                         {{ $leva->tempo_fervura_final }}
                     </td>
                     <td>
-                        {{ $leva->qtd_agua }} litro
+                        {{ $leva->qtd_agua }} litros
                     </td>
                     <td>
-                        {{ $leva->qtd_fermento }} grama
+                        {{ $leva->qtd_fermento }} gramas
                     </td>
                     <td>
                         {{ isset($leva->fermentos->nome) ? $leva->fermentos->nome : 'Fermento não encontrado' }}
@@ -70,6 +71,7 @@
                     </td>
                     <td>
                         <a href="{{ route('levas.edit', ['id' => $leva->id]) }}" class="btn-sm btn-success">Editar</a>
+                        <p></p>
                         <a href="#" onclick="return ConfirmaExclusao({{ $leva->id }})"
                             class="btn-sm btn-danger">Remover</a>
                     </td>

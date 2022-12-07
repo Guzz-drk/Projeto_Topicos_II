@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('content')
-    <h1>Fermentos</h1>
+<br>
+    <h1 style="text-align: center">Fermentos</h1>
     {!! Form::open(['name' => 'form_name', 'route' => 'fermentos']) !!}
     <div class="sidebar-form">
         <div class="input-group">
@@ -13,7 +14,7 @@
         </div>
     </div>
     <br>
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-striped table-bordered table-hover" style="text-align: center">
         <thead>
             <th>
                 Nome

@@ -1,8 +1,9 @@
 @extends('layouts.default')
 @section('content')
-    <h1>Receitas</h1>
+<br>
+    <h1 style="text-align: center">Receitas</h1>
 
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-striped table-bordered table-hover" style="text-align: center">
         <thead>
             <th>
                 Lupulo

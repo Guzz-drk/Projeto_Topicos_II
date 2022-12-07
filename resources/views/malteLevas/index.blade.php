@@ -1,8 +1,9 @@
 @extends('layouts.default')
 @section('content')
-    <h1>Malte-Levas</h1>
+<br>
+    <h1 style="text-align: center">Malte-Levas</h1>
 
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-striped table-bordered table-hover" style="text-align: center">
         <thead>
             <th>
                 Quantidade de Malte
